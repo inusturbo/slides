@@ -31,7 +31,9 @@ jobs:
       - name: Install slidev-theme-penguin
         run: npm install slidev-theme-penguin
       - name: Export slidev as PDF
-        run: npm run export --slide=${GITHUB_REF##*/} && npm run export:dark --slide=${GITHUB_REF##*/}
+        run: npm run export --slide=${GITHUB_REF##*/}
+      - name: Export slidev as PDF (Dark Mode)
+        run: npm run export:dark --slide=${GITHUB_REF##*/}
       - uses: softprops/action-gh-release@v1
         with:
           files: |
