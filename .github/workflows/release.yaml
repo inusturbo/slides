@@ -30,6 +30,8 @@ jobs:
       - run: npm ci
       - name: Install slidev-theme-penguin
         run: npm install slidev-theme-penguin
+      - name: Install slidev-theme-penguin
+        run: npm install @iconify-json/logos
       - name: Export slidev as PDF
         run: npm run export --slide=${GITHUB_REF##*/}
       - name: Export slidev as PDF (Dark Mode)
