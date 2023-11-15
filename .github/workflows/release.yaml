@@ -28,6 +28,8 @@ jobs:
           node-version: 16
           cache: "npm"
       - run: npm ci
+      - name: Install slidev-theme-penguin
+        run: npm install slidev-theme-penguin
       - name: Export slidev as PDF
         run: npm run export --slide=${GITHUB_REF##*/} && npm run export:dark --slide=${GITHUB_REF##*/}
       - uses: softprops/action-gh-release@v1
