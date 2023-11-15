@@ -44,7 +44,7 @@ jobs:
         run: |
           npm run build:before --slide=${GITHUB_REF##*/} --pagesurl=${{ steps.configure-pages.outputs.base_url }}
       - name: Build slidev as SPA
-        run: npm run build --slide=${GITHUB_REF##*/}
+        run: yes | npm run build --slide=${GITHUB_REF##*/}
       - name: Generate preview image for OGP
         if: ${{ steps.checkOGP.outputs.ogp == 'true' }}
         run: |
