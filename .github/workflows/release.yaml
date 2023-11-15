@@ -27,18 +27,13 @@ jobs:
         with:
           node-version: 16
           cache: "npm"
-      - name: Install dependencies
-        run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
       - name: Install slidev-theme-penguin
         run: npm install slidev-theme-penguin
       - name: Install slidev-theme-penguin
         run: npm install @iconify-json/logos
+      - run: npm ci
       - name: Export slidev as PDF
-        run: npm run export --slide=${GITHUB_REF##*/}
-      - name: Export slidev as PDF (Dark Mode)
-        run: npm run export:dark --slide=${GITHUB_REF##*/}
+        run: npm run export --slide=${GITHUB_REF##*/} && npm run export:dark --slide=${GITHUB_REF##*/}
       - uses: softprops/action-gh-release@v1
         with:
           files: |
